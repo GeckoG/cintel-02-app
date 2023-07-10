@@ -12,10 +12,10 @@ import shinyswatch
 from shiny import *
 
 
-# TODO: Change the shinyswatch theme to morph, cosmo, darkly, flatly, sketchy (or other shinyswatch theme)
+# You can change the shinyswatch theme to morph, cosmo, darkly, flatly, sketchy (or other shinyswatch theme)
 # Preview at https://bootswatch.com/
 app_ui = ui.page_navbar(
-    shinyswatch.theme.minty(),
+    shinyswatch.theme.cosmo(),
     ui.nav(
         "Home",
         ui.layout_sidebar(
@@ -34,7 +34,6 @@ app_ui = ui.page_navbar(
             ),
         ),
     ),
-    # TODO: Update the links to reflect your own about, GitHub repo, and app
     ui.nav(ui.a("About", href="https://github.com/geckog")),
     ui.nav(ui.a("GitHub", href="https://github.com/geckog/cintel-02-app")),
     ui.nav(ui.a("App", href="https://geckog.github.io/cintel-02-app/")),
@@ -42,7 +41,6 @@ app_ui = ui.page_navbar(
     ui.nav(ui.a("Examples", href="https://shinylive.io/py/examples/")),
     ui.nav(ui.a("Themes", href="https://rstudio.github.io/py-shinyswatch/")),
     ui.nav(ui.a("Deploy", href="https://docs.posit.co/shinyapps.io/getting-started.html#working-with-shiny-for-python")),
-    # TODO: Update the title to reflect yourname Dashboard
     title=ui.h1("Goeckel Dashboard"),
 )
 
@@ -56,13 +54,12 @@ def server(input, output, session):
     """
 
     # Define the reactive outputs. Tell what to render and how to render it
-    # TODO: Customize the reactive greeting.
 
     @output
     @render.text
     def welcome_output():
         user = input.name_input();
-        welcome_string = f'Greetings {user}!';
+        welcome_string = f'Sup {user}!';
         return welcome_string
 
     @output
